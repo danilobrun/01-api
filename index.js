@@ -1,12 +1,13 @@
 
+const express = require('express')
+const app = express()
+const porta = process.env.PORTA || 3000
 
+app.get('/', function (req, res) {
+  res.send('Hello World')
+});
 
-console.log('Olá mundo!!!');
-
-console.log(process.env.TESTE);
-
-
-console.log('Olá mundo 2!!!');
+app.listen(porta);
 
 
 
