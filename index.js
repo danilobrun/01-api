@@ -3,6 +3,25 @@ const app = express()
 const porta = process.env.PORTA || 3000
 
 
+app.use(express.json())
+
+
+app.use((req, res, next) => {
+  
+  console.log("header: ", req.headers)
+  console.log("body: ", req.body)
+  
+  req.bacon = {
+    id: 'test',
+  } 
+  
+  next();
+
+})
+
+
+
+
 //REQUEST 
   
   // CONTEXTOS
@@ -28,16 +47,12 @@ const porta = process.env.PORTA || 3000
     //    - comum utilizar para expor consultas nos servicos
     
     app.get('/', function (req, res) { 
-      
       res.send('Hello World 1.1') 
-    
     });
 
 
     app.get('/:id', function (req, res) { 
-      
       res.send('Hello World 1.1') 
-    
     });
     
     //POST 
@@ -45,6 +60,31 @@ const porta = process.env.PORTA || 3000
     app.post('/', function (req, res) { 
       
       res.send('Hello World 1.2') 
+      
+    });
+
+
+    const middlewareLocal = (req, res, next) => {
+
+      if (req.bacon.id !== 'test2') {
+        res.status(401).send('usuario não autenticado')
+      }
+      else {
+        next()
+      }
+
+    }
+    
+    app.post('/user', middlewareLocal, middlewareLocal, function (req, res) { 
+      
+  
+      // fdsfsdfsdfsdf
+
+      console.log("bacon: ", req.bacon)
+      console.log(req);
+      res.send('Hello World 1.2'); 
+
+      
       
     });
     
