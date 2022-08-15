@@ -3,7 +3,7 @@ const listaCursoUseCase = require('../core/cursos/listar-cursos.usecase');
 const listaCursoMapper = require('../mapper/cursos/lista-curso.mapper');
 
 
-const listaCurso = (req, res) => { 
+const incluirInscricao = (req, res) => { 
     
     //todo: extrair dados
     console.log(req.query);
@@ -28,42 +28,12 @@ const listaCurso = (req, res) => {
   
 }
 
-const exibeCurso = (req, res) => {
-
-    //todo: extrair dados
-    console.log(req.params);
-    const id = req.params.id;
-
-    //todo: validar os dados     
-    if (!id || id == ' ') {
-        
-        return res.status(400).json({
-            mensagem: "cusrso id não informado",
-        }) 
-    }
-    
-
-
-    // const query = req.query.status;
-
-
-    //todo: montar objeto de saida 
-    res.json({
-        id: 'fdsfsdf',
-        descricao: '',
-        status: '',
-        inscricoes: [
-
-        ]
-
-    })
-
-
+const excluirInscricao = (req, res) => {
 
 }
 
 
 module.exports = {
     listaCurso,
-    exibeCurso
+    buscaCurso
 }
