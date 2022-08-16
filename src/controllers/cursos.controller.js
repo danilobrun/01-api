@@ -1,4 +1,7 @@
 const cursosStatus = [ "ativo", "inativo"];
+
+const exibirCursoUseCase = require('../core/cursos/exibir-curso.usecase');
+
 const listaCursoUseCase = require('../core/cursos/listar-cursos.usecase');
 const listaCursoMapper = require('../mapper/cursos/lista-curso.mapper');
 
@@ -43,19 +46,23 @@ const exibeCurso = (req, res) => {
     }
     
     //todo: camada de negocio
-    const ucResult = listaCursoUseCase({ status: query})
-
-
-    
-
+    const ucResult = exibirCursoUseCase(id);
 
     //todo: montar objeto de saida 
-    res.json({
-        id: 'fdsfsdf',
-        descricao: '',
-        status: '',
-        inscricoes: [
 
+    res.json({
+        id: ucResult.id,
+        descricao: ucResult.descricao,
+        status: ucResult.status,
+        inscricoes: [
+            ... ucResult.inscricoes.map(item => {
+                return {
+                    id: item.id,
+                    dataCadastro: item.dataCadastro, 
+                    alunoNome: item.alunoNome,
+                    status: item.status
+                }
+            })
         ]
 
     })
