@@ -42,9 +42,11 @@ const exibeCurso = (req, res) => {
         }) 
     }
     
+    //todo: camada de negocio
+    const ucResult = listaCursoUseCase({ status: query})
 
 
-    // const query = req.query.status;
+    
 
 
     //todo: montar objeto de saida 
