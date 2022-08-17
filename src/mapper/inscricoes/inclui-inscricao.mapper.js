@@ -3,14 +3,18 @@ const dtoToDomain = ({}) => {
     
 } 
 
-const domainToDto = () => {
+const domainToDto = ({ inscricao }) => {
     
+    //todo: construir dto para operacao de constrolador
+
     return {
-        mensagem: "sucesso!",
+        mensagem: 'sucesso!',
         inscricao: {
-            id: "",            
-            dataCriacao: "",
-        },
+            id: '1',
+            dataCadastro: '2022-08-17', 
+            alunoNome: 'fdsfsdfd',
+            status: 'fdsfsdfdsf'
+        }
     }
 } 
 

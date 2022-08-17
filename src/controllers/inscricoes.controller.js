@@ -1,10 +1,14 @@
 const incluiInscricaoMapper = require('../mapper/inscricoes/inclui-inscricao.mapper');
 const excluiInscricaoMapper = require('../mapper/inscricoes/inclui-inscricao.mapper');
 
-const incluirInscricao = (req, res) => { 
+const incluiInscricao = (req, res) => { 
     
     //todo: extrair dados
+    const { params, body } = req;
+
     //todo: validar os dados     
+
+
     //todo: transformando dados da entra em objetos de negocio FALTOU
     //todo: camada de negocio
     
@@ -13,7 +17,7 @@ const incluirInscricao = (req, res) => {
 
 }
 
-const excluirInscricao = (req, res) => {
+const excluiInscricao = (req, res) => {
 
     //todo: extrair dados
     //todo: validar os dados     
@@ -27,6 +31,6 @@ const excluirInscricao = (req, res) => {
 
 
 module.exports = {
-    incluirInscricao,
-    excluirInscricao
+    incluiInscricao,
+    excluiInscricao
 }
