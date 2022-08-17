@@ -3,12 +3,12 @@
 
 
 
-const DTOToDomain = ({}) => {
+const dtoToDomain = ({}) => {
 
 } 
 
 
-const domainToDTO = (listaCursos) => {
+const domainToDto = (listaCursos) => {
     
     
     return {
@@ -24,12 +24,10 @@ const domainToDTO = (listaCursos) => {
             })
         ]
     }
-
 } 
 
 
-
 module.exports = {
-    DTOToDomain,
-    domainToDTO
+    dtoToDomain,
+    domainToDto
 }

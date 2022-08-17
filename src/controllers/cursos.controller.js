@@ -27,7 +27,7 @@ const listaCurso = (req, res) => {
     const ucResult = listaCursoUseCase({ status: query})
 
     //todo: montar objeto de saida 
-    res.json(listaCursoMapper.domainToDTO(ucResult)); 
+    res.json(listaCursoMapper.domainTo(ucResult)); 
   
 }
 
