@@ -30,24 +30,29 @@ const incluiInscricao = (req, res) => {
     }
     
     
-    //todo: validar os dados     
-    if(!params.id || params.id == ' ') {
+    //todo: remover para funcao
+    console.log(body);
+    const bodySchema = joi.object({
+        alunoNome: joi.string().min(8).max(15).required(),
+        alunoEmail: joi.string().email().required(),
+    })
+
+    const bodyResult = bodySchema.validate(body);
+    if (bodyResult.error) {
+
+        const { details } = bodyResult.error;                
+
+        const detailsMessages = details.reduce((acc, item) => {
+
+            return [ ...acc, item.message ]
         
-        return res.status(400).json({
-            mensagem: 'curso não informado'
-        });
-    } 
-
-    if (
-        (!body.alunoNome) || (body.alunoNome.length < 5)
-    ) {
+        }, [])
 
         return res.status(400).json({
-            mensagem: 'o nome do aluno esta incorreto'
-        });
-
+            mensagem: detailsMessages.join(';')
+        });                        
     }
-
+    
 
 
 
