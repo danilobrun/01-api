@@ -1,8 +1,6 @@
 const cursosStatus = [ "ativo", "inativo"];
-
-const exibirCursoUseCase = require('../core/cursos/exibir-curso.usecase');
-
-const listaCursoUseCase = require('../core/cursos/listar-cursos.usecase');
+const exibirCursoUseCase = require('../../core/cursos/exibir-curso.usecase');
+const listaCursoUseCase = require('../../core/cursos/listar-cursos.usecase');
 const listaCursoMapper = require('../mapper/cursos/lista-curso.mapper');
 
 

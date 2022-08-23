@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const cursoRoutes = require('./routes/cursos.route');
+const cursoRoutes = require('./presentation/routes/cursos.route');
 
 // const middleware = require('./util/middlewarelocal');
 
